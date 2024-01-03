@@ -7,6 +7,6 @@ namespace hotelar.Domain.Entities
 {
     public class Customer : Person
     {
-        
+        public bool IsGuest { get; set; }
     }
 }

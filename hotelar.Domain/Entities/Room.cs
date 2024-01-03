@@ -9,6 +9,6 @@ namespace hotelar.Domain.Entities
     {
         public string RoomType { get; set; }
         public int DoorNumber { get; set; }
-        
+        public bool IsAvailable { get; set; }        
     }
 }

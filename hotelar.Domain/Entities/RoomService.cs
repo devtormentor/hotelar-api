@@ -9,6 +9,7 @@ namespace hotelar.Domain.Entities
     {
         public string ServiceName { get; set; }
         public decimal ServicePrice { get; set; }
-        public virtual ServiceScheduling Scheduling { get; set;}
+        public IEnumerable<ServiceScheduling> Scheduling { get; set;}
+        public IEnumerable<DailySells> DailySells { get; set;}
     }
 }

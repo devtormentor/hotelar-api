@@ -7,9 +7,9 @@ namespace hotelar.Domain.Entities
 {
     public class Person : BaseClass
     {
-        public string DocIdtype { get; set; }
-        public string DocIdNumber { get; set; }
-        public string Name { get; set; }
-        public string BirthDate { get; set; }
+        public string  DocIdtype { get; set; }
+        public string  DocIdNumber { get; set; }
+        public string  FullName { get; set; }
+        public DateTime  BirthDate { get; set; }
     }
 }

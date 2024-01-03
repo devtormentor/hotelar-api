@@ -1,8 +1,13 @@
+using hotelar.api.Root;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-builder.Services.AddControllers();
+builder.AddControllersConfig();
+builder.AddConfigurationConfig();
+builder.AddDataProtectionConfig();
+builder.AddPersistenceConfig();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();

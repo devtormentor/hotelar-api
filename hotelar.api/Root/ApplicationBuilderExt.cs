@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace hotelar.Domain.Entities
+namespace hotelar.api.Root
 {
-    public class Customer : Person
+    public class ApplicationBuilderExt
     {
         
     }

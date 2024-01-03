@@ -5,10 +5,10 @@ using System.Threading.Tasks;
 
 namespace hotelar.Domain.Entities
 {
-    public class Employee : BaseClass
+    public class Employee : Person
     {
-        public string EmployeeName { get; set; } 
         public string EmployeeFunction { get; set; } 
         public string EmployeeLevel { get; set; } 
+        public DateTime AdmissionDate { get; set; }
     }
 }

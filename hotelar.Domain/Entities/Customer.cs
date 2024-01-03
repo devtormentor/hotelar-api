@@ -7,15 +7,7 @@ namespace hotelar.Domain.Entities
 {
     public class Customer : BaseClass
     {
-        
-
-        public int CustomerID { get; set; }
         public string CustomerName { get; set; } 
         public string CustomerServiceRequest { get; set; } 
-  
-
-
-
-
     }
 }

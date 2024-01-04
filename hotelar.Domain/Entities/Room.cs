@@ -1,14 +1,14 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+namespace hotelar.Domain.Entities;
 
-namespace hotelar.Domain.Entities
+public class Room : BaseClass
 {
-    public class Room : BaseClass
+    public Room()
     {
-        public string RoomType { get; set; }
-        public int DoorNumber { get; set; }
-        public bool IsAvailable { get; set; }        
+        Reservations = new HashSet<Reservation>();
+        DirectSells = new HashSet<DirectSell>();
     }
+    public string ? RoomType { get; set; }
+    public string ? RoomNumber { get; set; }
+    public ICollection<Reservation> ? Reservations {get; set;}
+    public ICollection<DirectSell> ? DirectSells {get; set;}
 }

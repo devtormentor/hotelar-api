@@ -1,15 +1,14 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+namespace hotelar.Domain.Entities;
 
-namespace hotelar.Domain.Entities
+public class RoomService : BaseClass
 {
-    public class RoomService : BaseClass
+    public RoomService()
     {
-        public string ServiceName { get; set; }
-        public decimal ServicePrice { get; set; }
-        public IEnumerable<ServiceScheduling> Scheduling { get; set;}
-        public IEnumerable<DailySells> DailySells { get; set;}
+        Reservations = new HashSet<Reservation>();
+        DirectSells = new HashSet<DirectSell>();
     }
+    public decimal ServicePrice { get; set; }
+    public string? ServiceName { get; set; }
+    public ICollection<Reservation> Reservations {get; set;}
+    public ICollection<DirectSell> DirectSells {get; set;}
 }

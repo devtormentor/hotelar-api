@@ -1,12 +1,9 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
 namespace hotelar.Domain.Entities
 {
-    public class Customer : Person
+    public class Customer : BaseClass
     {
-        public bool IsGuest { get; set; }
+        public bool IsHosted { get; set; }
+        public int PersonId {get; set;}
+        public virtual Person? Person {get; set;}
     }
 }

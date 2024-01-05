@@ -2,6 +2,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\hotelar.Domain\hotelar.Domain.csproj" />
+    <ProjectReference Include="..\hotelar.Infrastructure\hotelar.Infrastructure.csproj" />
   </ItemGroup>
 
   <PropertyGroup>

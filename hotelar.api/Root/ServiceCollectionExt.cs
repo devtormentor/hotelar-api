@@ -5,6 +5,12 @@ using Microsoft.AspNetCore.DataProtection;
 using Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption;
 using Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel;
 using Microsoft.AspNetCore.Http.Features;
+using hotelar.Application.RepositoryPattern.Contracts;
+using hotelar.Infrastructure.RepositoryPattern.Contracts;
+using hotelar.Application.RepositoryPattern.Implementations;
+using hotelar.Infrastructure.RepositoryPattern.Implementations;
+using hotelar.Infrastructure.DataBase;
+using Microsoft.EntityFrameworkCore;
 
 
 namespace hotelar.api.Root
@@ -62,13 +68,12 @@ namespace hotelar.api.Root
         {
 
             //varieable for introduce connection strings
-            //builder.Services.AddDbContext<SiadesDbContext>(options =>
-            //    options.UseSqlServer(builder.Configuration.GetConnectionString("Default"))
-            //    .EnableSensitiveDataLogging()
-            //    .EnableThreadSafetyChecks()
-            //);
+            builder.Services.AddDbContext<DataContext>(options =>
+                options.UseSqlite(builder.Configuration.GetConnectionString("Default"))
+            );
 
-            //builder.Services.AddTransient<IBloodRepository, BloodRepository>().AddLogging();
+            builder.Services.AddTransient<ICustomerContractApp, CustomerImplementationApp>().AddLogging();
+            builder.Services.AddScoped<ICustomerContracts, CustomerImplementations>().AddLogging();
     
             return builder;
         }

@@ -10,7 +10,7 @@ namespace hotelar.Domain.Entities
         public string ? SquareName { get; set; }
         public string ? NeighborNamr { get; set; }
         public string ? StreetName { get; set; }
-        public string ? HouNumber { get; set; }
+        public string ? HouseNumber { get; set; }
 
         public ICollection<Person>? People {get; set;}
     }

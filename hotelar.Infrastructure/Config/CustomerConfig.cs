@@ -10,6 +10,7 @@ public class CustomerConfig : IEntityTypeConfiguration<Customer>
     {   
         builder
             .HasOne(p => p.Person)
-            .WithMany(c => c.Customers);
+            .WithMany(c => c.Customers)
+            .OnDelete(DeleteBehavior.Cascade);
     }
 }

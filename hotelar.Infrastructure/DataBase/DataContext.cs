@@ -1,4 +1,5 @@
 using hotelar.Domain.Entities;
+using hotelar.Infrastructure.Config;
 using Microsoft.EntityFrameworkCore;
 
 namespace hotelar.Infrastructure.DataBase
@@ -18,5 +19,12 @@ namespace hotelar.Infrastructure.DataBase
         public DbSet<RoomService> Tb_RoomService {get; set;}
         public DbSet<PersonContact> Tb_PersonContact {get; set;}
         public DbSet<PersonAddress> Tb_PersonAddress {get; set;}
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.ApplyConfiguration(new PersonConfig());
+
+            base.OnModelCreating(modelBuilder);
+        }
     }
 }

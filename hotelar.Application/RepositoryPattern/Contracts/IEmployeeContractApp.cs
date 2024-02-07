@@ -7,11 +7,11 @@ using hotelar.Domain.Entities;
 
 namespace hotelar.Application.RepositoryPattern.Contracts
 {
-    public interface ICustomerContractApp
+    public interface IEmployeeContractApp
     {
-        Task<IEnumerable<Customer>> GetCustomers();
-        Task<Customer> GetCustomer(int id);
-        Task AddCustomer(CustomerDTO customer);
-        Task DeleteCustomer(int id);
+        Task<IEnumerable<Employee>> GetEmployees();
+        Task<Employee> GetEmployee(int id);
+        Task AddEmployee(EmployeeDTO Employee);
+        //Task DeleteEmployee(int id);
     }
 }

@@ -5,28 +5,28 @@ using hotelar.Infrastructure.RepositoryPattern.Contracts;
 
 namespace hotelar.Application.RepositoryPattern.Implementations
 {
-    public class CustomerImplementationApp(ICustomerContracts customerContracts) : ICustomerContractApp
+    public class EmployeeImplementationApp(IEmployeeContracts employeeContracts) : IEmployeeContractApp
     {
-        private readonly ICustomerContracts customerContracts = customerContracts;
+        private readonly IEmployeeContracts customerContracts = employeeContracts;
 
-        public async Task AddCustomer(CustomerDTO customer)
+        public async Task AddEmployee(EmployeeDTO employee)
         {
             try
             {
-                if (customer.DocIdNumber == string.Empty)
+                if (employee.DocIdNumber == string.Empty)
                 {
                     throw new NullReferenceException("O numero do documento de identificação é obrigatorio");
                 }
-                if (customer.EmailAddress == string.Empty)
+                if (employee.EmailAddress == string.Empty)
                 {
                     throw new NullReferenceException("O endereço de email é obrigatorio");
                 }
-                if (customer.FullName == string.Empty)
+                if (employee.FullName == string.Empty)
                 {
                     throw new NullReferenceException("O nome do cliente é obrigatorio");
                 }
 
-                await customerContracts.CreateCustomer(customer);
+                await employeeContracts.CreateEmployee(employee);
 
 
             }
@@ -36,28 +36,28 @@ namespace hotelar.Application.RepositoryPattern.Implementations
             }
         }
 
-        public async Task DeleteCustomer(int id)
+        //public async Task DeleteEmployee(int id)
+        //{
+        //    var employee = await this.GetEmployee(id);
+        //    await employeeContracts.DeleteEmployee(employee);
+        //}
+
+        public async Task<Employee> GetEmployee(int id)
         {
-            var customer = await customerContracts.GetCustomerById(id);
-            await customerContracts.DeleteCustomer(customer);
+            var employee = await employeeContracts.GetEmployeeById(id);
+            return employee;
         }
 
-        public async Task<Customer> GetCustomer(int id)
-        {
-            var customer = await customerContracts.GetCustomerById(id);
-            return customer;
-        }
-
-        public async Task<IEnumerable<Customer>> GetCustomers()
+        public async Task<IEnumerable<Employee>> GetEmployees()
         {
             try
             {
-                var customers = this.customerContracts.GetCustomers();
-                if (customers == null)
+                var employees = employeeContracts.GetEmployees();
+                if (employees == null)
                 {
                     return null;
                 }
-                return await customers;
+                return await employees;
             }
             catch (System.Exception ex)
             {

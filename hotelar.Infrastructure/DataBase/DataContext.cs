@@ -16,6 +16,7 @@ namespace hotelar.Infrastructure.DataBase
         public DbSet<DirectSell> Tb_DirectSell {get; set;}
         public DbSet<Reservation> Tb_Reservation {get; set;}
         public DbSet<Room> Tb_Room {get; set;}
+        public DbSet<Employee> Tb_Employee {get; set;}
         public DbSet<RoomService> Tb_RoomService {get; set;}
         public DbSet<PersonContact> Tb_PersonContact {get; set;}
         public DbSet<PersonAddress> Tb_PersonAddress {get; set;}

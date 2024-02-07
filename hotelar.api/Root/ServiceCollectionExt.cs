@@ -27,16 +27,7 @@ namespace hotelar.api.Root
                     = Newtonsoft.Json.ReferenceLoopHandling.Ignore)
                     .AddNewtonsoftJson(options => options.SerializerSettings.ContractResolver
                     = new DefaultContractResolver())
-                .AddJsonOptions(options =>
-                {
-                    options.JsonSerializerOptions.AllowTrailingCommas = true;
-                    options.JsonSerializerOptions.DefaultBufferSize = 1024;
-                    options.JsonSerializerOptions.IgnoreReadOnlyFields = true;
-                    options.JsonSerializerOptions.IgnoreReadOnlyProperties = true;
-                    options.JsonSerializerOptions.PropertyNameCaseInsensitive = true;
-                    options.JsonSerializerOptions.ReadCommentHandling = new JsonCommentHandling();
-                    options.JsonSerializerOptions.UnknownTypeHandling = new JsonUnknownTypeHandling();
-                });
+                ;
             return builder;
         }
 
@@ -74,6 +65,9 @@ namespace hotelar.api.Root
 
             builder.Services.AddTransient<ICustomerContractApp, CustomerImplementationApp>().AddLogging();
             builder.Services.AddScoped<ICustomerContracts, CustomerImplementations>().AddLogging();
+            builder.Services.AddScoped<IRoomContracts, RoomImplementations>().AddLogging();
+            builder.Services.AddScoped<IRoomContractApp, RoomImplementationApp  >().AddLogging();
+            
     
             return builder;
         }

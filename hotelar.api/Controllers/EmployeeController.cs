@@ -10,27 +10,27 @@ namespace hotelar.api.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class CustomerController(ICustomerContractApp contractApp) : ControllerBase
+    public class EmployeeController(IEmployeeContractApp contractApp) : ControllerBase
     {
-        private readonly ICustomerContractApp contractApp = contractApp;
+        private readonly IEmployeeContractApp contractApp = contractApp;
 
         [HttpGet]
         public async Task<IActionResult> Get ()
         {
-            var customers =await contractApp.GetCustomers();
-            return Ok(customers);
+            var employees =await contractApp.GetEmployees();
+            return Ok(employees);
         }
         [HttpPost]
-        public async Task<IActionResult> Insert (CustomerDTO customer)
+        public async Task<IActionResult> Insert (EmployeeDTO employee)
         {
-            await contractApp.AddCustomer(customer);
-            return Ok("Customer Added successfully");
+            await contractApp.AddEmployee(employee);
+            return Ok("Employee Added successfully");
         }
         
         [HttpDelete]
         public async Task<IActionResult> Delete (int id)
         {
-            await contractApp.DeleteCustomer(id);
+            //await contractApp.DeleteEmployee(id);
             return NoContent();
         }
     }
